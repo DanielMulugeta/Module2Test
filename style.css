@@ -21,16 +21,41 @@ body {
 }
 .menu {
   border: 1px solid black;
-  width: 600px;
+  width: 33%;
+  /* flex: 1;   it will give the space 1/3 it will share the equal space  */
   height: 200px;
+  margin: 0px 15px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  /* padding-top: 20px; */
+
   background-color: darkgray;
 }
 .container {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  /* justify-content: space-between; we already gave margin on menu class */
+  /* flex-wrap: wrap; */
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .container {
+    flex-wrap: wrap;
+  }
+  .menu {
+    flex: 1 1 calc(50% - 35px);
+  }
+  .mobile {
+    flex: 1 1 calc(100% - 35px);
+    margin-top: 15px;
+  }
+}
+@media (max-width: 767px) {
+  .container {
+    flex-wrap: wrap;
+  }
+
+  .menu {
+    flex: 1 1 100%;
+    margin-top: 15px;
+  }
 }
